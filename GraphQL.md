@@ -22,6 +22,7 @@
 
 ```
 Install-Package GraphQL
+Install-Package GraphQL.SystemTextJson
 ```
 
 ## 设计业务模型类

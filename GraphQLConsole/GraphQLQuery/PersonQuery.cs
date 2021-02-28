@@ -9,13 +9,11 @@ namespace GraphQLConsole.GraphQLQuery
 {
     public class PersonQuery : ObjectGraphType
     {
-        public const string QueryName = "QueryPerson";
-
         public PersonQuery()
         {
             this.Name = nameof(PersonQuery);
             this.Description = $"{nameof(PersonQuery)} for GraphQL.";
-            this.Field<PersonType>(QueryName, resolve: context => new Person() { ID = 001, Name = "CuteLeon" });
+            this.Field<PersonType>("queryPerson", resolve: context => new Person() { ID = 001, Name = "CuteLeon" });
         }
     }
 }
