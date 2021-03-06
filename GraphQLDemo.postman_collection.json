@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "c7a60af9-21e5-43f0-a33a-0a09972a20c6",
+		"name": "GraphQLDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CommonGetProperties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/Common/Property",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Common",
+						"Property"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CommonGetProperty",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/Common/Property",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Common",
+						"Property"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CommonGetPayments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/Common/Payment",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Common",
+						"Payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CommonGetPayment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/Common/Payment/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Common",
+						"Payment",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
