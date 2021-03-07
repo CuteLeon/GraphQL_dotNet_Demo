@@ -34,8 +34,10 @@ namespace GraphQLWebAPIwithEFCore
             }, ServiceLifetime.Singleton);
 
             services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
-            services.AddSingleton<RootQuery>();
+            services.AddSingleton<PropertyQuery>();
+            services.AddSingleton<PropertyMutation>();
             services.AddSingleton<PropertyType>();
+            services.AddSingleton<PropertyInputType>();
             services.AddSingleton<PaymentType>();
             services.AddSingleton<ISchema, APISchema>();
 

@@ -6,18 +6,18 @@ using GraphQLWebAPIwithEFCore.GraphQLTypes;
 
 namespace GraphQLWebAPIwithEFCore.GraphQLAction
 {
-    public class RootQuery : ObjectGraphType
+    public class PropertyQuery : ObjectGraphType
     {
-        public RootQuery(DatabaseContext dbContext)
+        public PropertyQuery(DatabaseContext dbContext)
         {
-            this.Field<ListGraphType<PropertyType>>("properties",
+            this.Field<ListGraphType<PropertyType>>("properties", resolve: context => dbContext.Properties.AsEnumerable());
+
+            this.Field<PropertyType>("property",
                 arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
                 resolve: context =>
                 {
-                    var id = context.GetArgument<int?>("id");
-                    return id.HasValue ?
-                        dbContext.Properties.Find(id.Value) :
-                        dbContext.Properties.ToList();
+                    var id = context.GetArgument<int>("id");
+                    return dbContext.Properties.Find(id);
                 });
         }
     }

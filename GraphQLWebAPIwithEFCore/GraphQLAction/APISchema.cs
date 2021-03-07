@@ -9,7 +9,8 @@ namespace GraphQLWebAPIwithEFCore.GraphQLAction
         public APISchema(IServiceProvider serviceProvider)
             : base(serviceProvider)
         {
-            this.Query = serviceProvider.GetRequiredService<RootQuery>();
+            this.Query = serviceProvider.GetRequiredService<PropertyQuery>();
+            this.Mutation = serviceProvider.GetRequiredService<PropertyMutation>();
         }
     }
 }

@@ -123,6 +123,33 @@
 					"response": []
 				},
 				{
+					"name": "SetProperty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation($propertyVariable: PropertyInputType!)\r\n{\r\n  addProperty(propertyDetail: $propertyVariable){\r\n      id\r\n      owner\r\n  }\r\n}\r\n",
+								"variables": "{\r\n    \"propertyVariable\":{\r\n        \"owner\":\"Cute Leon\",\r\n        \"value\": 300000,\r\n        \"city\": \"Shangqiu\",\r\n        \"payments\": [\r\n            {\r\n                \"value\": 50000\r\n            },\r\n            {\r\n                \"value\": 250000\r\n            }\r\n        ]\r\n    }\r\n}"
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/GraphQL/Query",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"GraphQL",
+								"Query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GetProperty",
 					"request": {
 						"method": "POST",
@@ -130,7 +157,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "{\r\n  properties {\r\n    id\r\n    owner\r\n    value\r\n    city\r\n    payments {\r\n      id\r\n      value\r\n      propertyID\r\n    }\r\n  }\r\n}\r\n",
+								"query": "{\r\n  property(id:2){\r\n    id\r\n    owner\r\n    value\r\n    city\r\n    payments{\r\n      id\r\n      value\r\n      propertyID\r\n    }\r\n  }\r\n}\r\n",
 								"variables": ""
 							}
 						},
