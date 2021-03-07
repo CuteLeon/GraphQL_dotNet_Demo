@@ -11,5 +11,7 @@ namespace GraphQLWebAPIwithEFCore.Entity
         public DateTime Date { get; set; }
 
         public bool HasPaid { get; set; }
+
+        public int PropertyID { get; set; }
     }
 }

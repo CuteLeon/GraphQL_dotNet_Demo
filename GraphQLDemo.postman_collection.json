@@ -6,85 +6,150 @@
 	},
 	"item": [
 		{
-			"name": "CommonGetProperties",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:5001/Common/Property",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "5001",
-					"path": [
-						"Common",
-						"Property"
-					]
+			"name": "Common",
+			"item": [
+				{
+					"name": "GetProperty",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/Common/Property/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Common",
+								"Property",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProperties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/Common/Property",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Common",
+								"Property"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPayment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/Common/Payment/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Common",
+								"Payment",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPayments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/Common/Payment",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Common",
+								"Payment"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "CommonGetProperty",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:5001/Common/Property",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "5001",
-					"path": [
-						"Common",
-						"Property"
-					]
+			"name": "GraphQL",
+			"item": [
+				{
+					"name": "GetProperties",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\r\n  properties {\r\n    id\r\n    owner\r\n    value\r\n    city\r\n    payments {\r\n      id\r\n      value\r\n      propertyID\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/GraphQL/Query",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"GraphQL",
+								"Query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProperty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\r\n  properties {\r\n    id\r\n    owner\r\n    value\r\n    city\r\n    payments {\r\n      id\r\n      value\r\n      propertyID\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/GraphQL/Query",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"GraphQL",
+								"Query"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "CommonGetPayments",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:5001/Common/Payment",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "5001",
-					"path": [
-						"Common",
-						"Payment"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "CommonGetPayment",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:5001/Common/Payment/2",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "5001",
-					"path": [
-						"Common",
-						"Payment",
-						"2"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }

@@ -1,17 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using GraphiQl;
+using GraphQL;
+using GraphQL.Types;
 using GraphQLWebAPIwithEFCore.DataAccess;
+using GraphQLWebAPIwithEFCore.GraphQLAction;
+using GraphQLWebAPIwithEFCore.GraphQLTypes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 
 namespace GraphQLWebAPIwithEFCore
@@ -20,7 +18,7 @@ namespace GraphQLWebAPIwithEFCore
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -33,7 +31,14 @@ namespace GraphQLWebAPIwithEFCore
             {
                 options.UseInMemoryDatabase("DefaultMemoryDB")
                     .UseLazyLoadingProxies();
-            });
+            }, ServiceLifetime.Singleton);
+
+            services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
+            services.AddSingleton<RootQuery>();
+            services.AddSingleton<PropertyType>();
+            services.AddSingleton<PaymentType>();
+            services.AddSingleton<ISchema, APISchema>();
+
             services.AddControllers();
         }
 
@@ -46,6 +51,9 @@ namespace GraphQLWebAPIwithEFCore
             }
 
             app.UseHttpsRedirection();
+
+            // 使用此框架以在线调试
+            app.UseGraphiQl("/GraphQLDemo", "/GraphQL/Query");
 
             app.UseRouting();
 
